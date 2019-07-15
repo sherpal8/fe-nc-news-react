@@ -5,3 +5,10 @@
   justify-content: space-evenly;
   padding: 2em;
 }
+
+.nav2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 2em;
+}

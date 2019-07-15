@@ -11,10 +11,11 @@ import { Router } from "@reach/router";
 import * as api from "./utils/api.js";
 
 class App extends Component {
-  state = { topics: ["Football", "Gardening", "Cooking"] };
+  state = {
+    topics: [{ slug: "Football" }, { slug: "Gardening" }, { slug: "Cooking" }]
+  };
   render() {
-    console.log(this.state.topics);
-    const { topics } = this.state.topics;
+    const topics = this.state.topics;
     return (
       <div className="App">
         <Header className="header" />
@@ -29,6 +30,18 @@ class App extends Component {
       </div>
     );
   }
+
+  componentDidMount = () => {
+    this.fetchTopics().then(topics => {
+      console.log(topics);
+    });
+  };
+
+  fetchTopics = () => {
+    api.getTopics().then(topicsData => {
+      console.log(topicsData);
+    });
+  };
 }
 
 export default App;
