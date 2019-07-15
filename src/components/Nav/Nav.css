@@ -12,3 +12,7 @@
   justify-content: space-evenly;
   padding: 2em;
 }
+
+.nav-link {
+  text-transform: capitalize;
+}
