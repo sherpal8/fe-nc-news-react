@@ -8,7 +8,7 @@ class Articles extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <div className="all-articles">
+      <div>
         <ul>
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
@@ -17,9 +17,11 @@ class Articles extends Component {
       </div>
     );
   }
-  componentDidMount() {
+
+  componentDidMount = () => {
     this.fetchAllArticles();
-  }
+  };
+
   fetchAllArticles = () => {
     api.getAllArticles().then(articles => {
       this.setState({ articles });

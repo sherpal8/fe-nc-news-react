@@ -1,11 +1,11 @@
 import React from "react";
+import "./ArticleCard.css";
 
 const ArticleCard = ({ article }) => {
-  console.log(article);
   return (
-    <div>
+    <div className="articleCard">
       <div>
-        {article.title} by {article.author}
+        {article.title} by <span>{article.author}</span>
       </div>
       <div>Current votes: {article.votes}</div>
     </div>

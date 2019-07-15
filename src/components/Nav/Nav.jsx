@@ -16,7 +16,7 @@ class Nav extends Component {
           <Link to="/">Home - All articles</Link>
           {topicsArr.map(({ slug }) => {
             return (
-              <Link className="nav-link" to="topics/${slug}" key={slug}>
+              <Link className="nav-link" to={`topics/${slug}`} key={slug}>
                 {slug}
               </Link>
             );
