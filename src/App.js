@@ -10,11 +10,7 @@ import PostArticle from "./components/PostArticle/PostArticle";
 import { Router } from "@reach/router";
 
 class App extends Component {
-  state = {
-    topics: [{ slug: "Football" }, { slug: "Gardening" }, { slug: "Cooking" }]
-  };
   render() {
-    const topics = this.state.topics;
     return (
       <div className="App">
         <Header className="header" />

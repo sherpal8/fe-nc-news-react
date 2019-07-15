@@ -6,3 +6,9 @@ export const getTopics = async () => {
   const topicsData = await axios.get(`${BASE_URL}/topics`);
   return topicsData.data.topics;
 };
+
+// get all articles
+export const getAllArticles = async () => {
+  const articlesData = await axios.get(`${BASE_URL}/articles`);
+  return articlesData.data.articles;
+};
