@@ -22,7 +22,7 @@ class ArticlePage extends Component {
           <ul className="comment-ul">
             {comments.map(comment => {
               return (
-                <li className="comment-list">
+                <li key={comment.comment_id} className="comment-list">
                   <p>
                     Comment by {comment.author} on{" "}
                     {comment.created_at.slice(0, 10)}
