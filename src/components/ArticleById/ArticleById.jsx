@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../utils/api";
+import "./ArticleById.css";
 
 class ArticlePage extends Component {
   state = { article: [], comments: [] };
@@ -18,12 +19,13 @@ class ArticlePage extends Component {
         </div>
         <div>
           Comments as below:
-          <ul>
+          <ul className="comment-ul">
             {comments.map(comment => {
               return (
-                <li>
+                <li className="comment-list">
                   <p>
-                    Comment by {comment.author} on {comment.created_at}
+                    Comment by {comment.author} on{" "}
+                    {comment.created_at.slice(0, 10)}
                   </p>
                   {comment.body}
                 </li>

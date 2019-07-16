@@ -3,7 +3,6 @@ import "./ArticleCard.css";
 import { Link } from "@reach/router";
 
 const ArticleCard = ({ article }) => {
-  console.log(article.article_id);
   return (
     <div className="articleCard">
       <Link to={`/articles/${article.article_id}`}>
@@ -12,6 +11,8 @@ const ArticleCard = ({ article }) => {
       <p>
         by <span>{article.author}</span>
       </p>
+      <p>Vote: {article.votes}</p>
+      <p>Comments count: {article.comment_count}</p>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+.comment-ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-list {
+  margin: auto auto 1em auto;
+  list-style: none;
+  border: 1px solid black;
+  width: 50%;
+  padding: 0.5em;
+}

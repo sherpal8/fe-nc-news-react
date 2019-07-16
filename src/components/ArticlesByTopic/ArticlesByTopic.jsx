@@ -4,13 +4,22 @@ import * as api from "../../utils/api.js";
 import ArticleCard from "../ArticleCard/ArticleCard";
 
 class ArticlesByTopic extends Component {
-  state = { articles: [] };
+  state = { articles: [], sort_by: "created_at" };
   render() {
     const topicSearch = this.props.topic;
     const articlesByTopic = this.state.articles;
     return (
       <div>
         <h2>Articles on {topicSearch}</h2>
+        <form onSubmit={this.handleSubmit}>
+          <p>Sort articles by:</p>
+          <select onChange={this.handleChange}>
+            <option value="created_at">Date created</option>
+            <option value="comment_count">Comment count</option>
+            <option value="votes">Votes</option>
+          </select>
+          <button type="submit">Sort articles!</button>
+        </form>
         <ul>
           {articlesByTopic.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
@@ -34,6 +43,20 @@ class ArticlesByTopic extends Component {
         this.setState({ articles });
       });
     }
+  };
+
+  handleChange = event => {
+    this.setState({ sort: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const { sort_by } = this.state;
+    const topicSearch = this.props.topic;
+    console.log(sort_by, topicSearch);
+    api.getArticles(topicSearch, sort_by).then(articles => {
+      this.setState({ articles });
+    });
   };
 }
 
