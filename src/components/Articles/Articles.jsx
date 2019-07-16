@@ -19,11 +19,7 @@ class Articles extends Component {
   }
 
   componentDidMount = () => {
-    this.fetchAllArticles();
-  };
-
-  fetchAllArticles = () => {
-    api.getAllArticles().then(articles => {
+    api.getArticles().then(articles => {
       this.setState({ articles });
     });
   };

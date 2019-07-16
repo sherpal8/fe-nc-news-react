@@ -3,12 +3,41 @@ const BASE_URL = "https://be-nc-news-sherpal.herokuapp.com/api";
 
 // get topics
 export const getTopics = async () => {
-  const topicsData = await axios.get(`${BASE_URL}/topics`);
-  return topicsData.data.topics;
+  const {
+    data: { topics }
+  } = await axios.get(`${BASE_URL}/topics`);
+  return topics;
 };
 
-// get all articles
-export const getAllArticles = async () => {
-  const articlesData = await axios.get(`${BASE_URL}/articles`);
-  return articlesData.data.articles;
+// get all articles - then filter if required
+export const getArticles = async topicSearch => {
+  const { data } = await axios.get(`${BASE_URL}/articles`);
+  if (topicSearch) {
+    return data.articles.filter(article => {
+      return article.topic === topicSearch;
+    });
+  } else {
+    return data.articles;
+  }
+
+  // todo: refactor backend to use this below
+  // {
+  //   params: {
+  //     topic;
+  //   }
+  // }
+  // return data.articles;
+};
+
+// get single article based on article_id
+export const getArticleById = async article_id => {
+  const { data } = await axios.get(`${BASE_URL}/articles/${article_id}`);
+  return data.article;
+};
+
+export const getCommentsByArticleId = async article_id => {
+  const { data } = await axios.get(
+    `${BASE_URL}/articles/${article_id}/comments`
+  );
+  return data.comments;
 };
