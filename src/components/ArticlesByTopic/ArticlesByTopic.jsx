@@ -46,14 +46,13 @@ class ArticlesByTopic extends Component {
   };
 
   handleChange = event => {
-    this.setState({ sort: event.target.value });
+    this.setState({ sort_by: event.target.value });
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const { sort_by } = this.state;
     const topicSearch = this.props.topic;
-    console.log(sort_by, topicSearch);
     api.getArticles(topicSearch, sort_by).then(articles => {
       this.setState({ articles });
     });

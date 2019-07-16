@@ -1,5 +1,6 @@
 import axios from "axios";
-const BASE_URL = "https://be-nc-news-sherpal.herokuapp.com/api";
+// const BASE_URL = "https://be-nc-news-sherpal.herokuapp.com/api";
+const BASE_URL = "https://bencnews.herokuapp.com/api";
 
 // get topics
 export const getTopics = async () => {
@@ -10,25 +11,11 @@ export const getTopics = async () => {
 };
 
 // get all articles - then filter if required
-export const getArticles = async (topicSearch, sorted_by) => {
+export const getArticles = async (topic, sort_by) => {
   const { data } = await axios.get(`${BASE_URL}/articles`, {
-    params: { sorted_by }
+    params: { topic, sort_by }
   });
-  if (topicSearch) {
-    return data.articles.filter(article => {
-      return article.topic === topicSearch;
-    });
-  } else {
-    return data.articles;
-  }
-
-  // todo: refactor backend to use this below
-  // {
-  //   params: {
-  //     topic;
-  //   }
-  // }
-  // return data.articles;
+  return data.articles;
 };
 
 // get single article based on article_id
