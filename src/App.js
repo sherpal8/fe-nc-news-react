@@ -18,7 +18,7 @@ class App extends Component {
         <Router className="main">
           <Articles path="/" />
           <ArticlesByTopic path="/topics/:topic" />
-          <ArticleById path="/articles/:id" />
+          <ArticleById path="/articles/:article_id" />
           <PostComment path="/postComment/:article_id" />
         </Router>
         <Footer className="footer" />

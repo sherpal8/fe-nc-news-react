@@ -5,15 +5,21 @@ import { Link } from "@reach/router";
 import Votes from "../Votes/Votes";
 
 class ArticlePage extends Component {
-  state = { article: [], comments: [] };
+  state = {
+    article: {
+      votes: 0,
+      article_id: 0
+    },
+    comments: []
+  };
   render() {
     const {
-      article: { title, body, comment_count, votes, article_id },
+      article: { title, body, comment_count, votes, article_id, comment_id },
       comments
     } = this.state;
     return (
       <div>
-        <div>
+        <div className="article-div">
           <h1>{title}</h1>
           <p>{body}</p>
           <Votes votes={votes} id={article_id} section="articles" />
@@ -37,7 +43,12 @@ class ArticlePage extends Component {
                     Comment by {comment.author} on{" "}
                     {comment.created_at.slice(0, 10)}
                   </p>
-                  {comment.body}
+                  <p>{body}</p>
+                  <Votes
+                    votes={comment.votes}
+                    id={comment.comment_id}
+                    section="comments"
+                  />
                 </li>
               );
             })}
@@ -46,12 +57,13 @@ class ArticlePage extends Component {
       </div>
     );
   }
+
   componentDidMount() {
-    const { id } = this.props;
-    api.getArticleById(id).then(article => {
+    const { article_id } = this.props;
+    api.getArticleById(article_id).then(article => {
       this.setState({ article });
     });
-    api.getCommentsByArticleId(id).then(comments => {
+    api.getCommentsByArticleId(article_id).then(comments => {
       this.setState({ comments });
     });
   }

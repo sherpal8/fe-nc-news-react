@@ -1,3 +1,7 @@
+.article-div {
+  padding: 1.2em;
+}
+
 .comment-ul {
   display: flex;
   flex-direction: column;
