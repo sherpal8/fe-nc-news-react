@@ -1,6 +1,8 @@
 import axios from "axios";
-// const BASE_URL = "https://be-nc-news-sherpal.herokuapp.com/api";
-const BASE_URL = "https://bencnews.herokuapp.com/api";
+
+const BASE_URL = "https://be-nc-news-sherpal.herokuapp.com/api";
+
+// const BASE_URL = "https://bencnews.herokuapp.com/";
 
 // get topics
 export const getTopics = async () => {
@@ -30,4 +32,22 @@ export const getCommentsByArticleId = async article_id => {
     `${BASE_URL}/articles/${article_id}/comments`
   );
   return data.comments;
+};
+
+// post comment
+export const postComment = async (article_id, username, body) => {
+  username = "jessjelly";
+  const { data } = await axios.post(
+    `${BASE_URL}/articles/${article_id}/comments`,
+    { username, body }
+  );
+  return data.comment;
+};
+
+// vote changer
+export const voteChanger = async (id, inc_votes, section) => {
+  const { data } = await axios.patch(`${BASE_URL}/${section}/${id}`, {
+    inc_votes
+  });
+  return data.article;
 };

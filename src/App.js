@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Articles from "./components/Articles/Articles";
 import ArticlesByTopic from "./components/ArticlesByTopic/ArticlesByTopic";
 import ArticleById from "./components/ArticleById/ArticleById";
-import PostArticle from "./components/PostArticle/PostArticle";
+import PostComment from "./components/PostComment/PostComment";
 import { Router } from "@reach/router";
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
           <Articles path="/" />
           <ArticlesByTopic path="/topics/:topic" />
           <ArticleById path="/articles/:id" />
-          <PostArticle path="/postArticle" />
+          <PostComment path="/postComment/:article_id" />
         </Router>
         <Footer className="footer" />
       </div>

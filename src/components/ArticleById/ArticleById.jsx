@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import * as api from "../../utils/api";
 import "./ArticleById.css";
+import { Link } from "@reach/router";
+import Votes from "../Votes/Votes";
 
 class ArticlePage extends Component {
   state = { article: [], comments: [] };
   render() {
     const {
-      article: { title, body, comment_count, votes },
+      article: { title, body, comment_count, votes, article_id },
       comments
     } = this.state;
     return (
@@ -14,8 +16,16 @@ class ArticlePage extends Component {
         <div>
           <h1>{title}</h1>
           <p>{body}</p>
-          <p>Votes: {votes}</p>
+          <Votes votes={votes} id={article_id} section="articles" />
           <p>Number of comments: {comment_count}</p>
+        </div>
+        <div>
+          {this.props.location.state.postSuccessful && (
+            <p>Comment post successful</p>
+          )}
+          <Link to={`/postComment/${article_id}`}>
+            <button>Post comment!</button>
+          </Link>
         </div>
         <div>
           Comments as below:
