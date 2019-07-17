@@ -22,15 +22,6 @@ class Nav extends Component {
             );
           })}
         </nav>
-        {/* // second navbar */}
-        <div>
-          <nav className="nav2">
-            <Link to="/topics/:topic">Articles by topic</Link>
-            <Link to="/articles/:id">Article by I.D.</Link>
-            <Link to="/postArticle">Post Article</Link>
-            <nav />
-          </nav>
-        </div>
       </div>
     );
   }
