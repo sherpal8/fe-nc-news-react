@@ -55,7 +55,7 @@ class PostComment extends Component {
         .postComment(article_id, username, body)
         .then(() => {
           navigate(`/articles/${article_id}`, {
-            state: { postSuccessful: true }
+            state: { msgSuccess: "Post comment successful." }
           });
         })
         .catch(err => {
