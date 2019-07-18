@@ -9,7 +9,7 @@ class Articles extends Component {
     const { articles } = this.state;
     return (
       <div>
-        <h2>All articles available</h2>
+        <h2>Home - All articles available</h2>
         <form onSubmit={this.handleSubmit}>
           <p>Sort articles by:</p>
           <select onChange={this.handleChange}>
