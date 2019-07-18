@@ -57,7 +57,9 @@ class ArticlePage extends Component {
                     <p>{comment.body}</p>
                   </div>
                   <Link
-                    to={`/deleteComment/${article_id}/${comment.comment_id}`}
+                    to={`/deleteComment/${article_id}/${comment.author}/${
+                      comment.comment_id
+                    }`}
                   >
                     <button>Delete comment</button>
                   </Link>

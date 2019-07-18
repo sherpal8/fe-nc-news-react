@@ -53,40 +53,52 @@ class DeleteComment extends Component {
     );
   }
 
+  // to update state with input values
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({ [id]: value });
   };
 
+  // if user decides to delte button
   buttonClickedYes = async event => {
     event.preventDefault();
     let { username, password } = this.state;
-    const { comment_id, article_id } = this.props;
+    const { comment_id, article_id, author } = this.props;
 
+    //to check entry fields not empty
     if (username.length > 0 && password.length > 0) {
-      const { user } = await api.checkUsername(username);
-      // password hardcoded for now
-      password = "123";
-      if (user.username.length > 0) {
-        if (password === "123") {
+      // author can only delete own comment
+      if (username === author) {
+        // confirm username still exists in backend
+        // ideally, backend will fetch both username & password
+        const { user } = await api.checkUsername(username);
+        // password hardcoded for now - ideally retired from backend
+        password = "123";
+        if (user.username.length > 0 && password === "123") {
+          // successful delete
           api.deleteComment(comment_id).then(() => {
             navigate(`/articles/${article_id}`, {
               state: { msgSuccess: "Comment delete successful!" }
             });
           });
         } else {
+          // if incorrect password
           navigate(`/articles/${article_id}`, {
-            state: { msgFail: "Gentle request. Please insert correct password" }
+            state: {
+              msgFail: "Gentle request. Please insert correct password."
+            }
           });
         }
       } else {
+        // authors can only delete own comments
         navigate(`/articles/${article_id}`, {
           state: {
-            msgFail: "Gentle request. Please enter correct username"
+            msgFail: "Gentle note. Authors may only delete own comments."
           }
         });
       }
     } else {
+      // if entry fields are empty
       navigate(`/articles/${article_id}`, {
         state: {
           msgFail: "Gentle request. Please fill in all entries for delete."
@@ -95,6 +107,7 @@ class DeleteComment extends Component {
     }
   };
 
+  // if author decides not to delete comment
   buttonClickedNo = () => {
     const { article_id } = this.props;
     navigate(`/articles/${article_id}`);

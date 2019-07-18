@@ -21,7 +21,7 @@
 .ArticleById__p--successful,
 .ArticleById__p--failed {
   font-weight: bolder;
-  font-size: 1.5em;
+  padding: 0.2em;
 }
 
 .ArticleById__p--successful {
@@ -38,6 +38,11 @@
     border-top: 2px solid black;
     border-bottom: 2px solid black;
   }
+
+  .ArticleById__p--successful,
+  .ArticleById__p--failed {
+    font-size: 1.2em;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -46,5 +51,10 @@
     border: 2px solid black;
     padding: 1em;
     margin: auto auto 1em 1em;
+  }
+
+  .ArticleById__p--successful,
+  .ArticleById__p--failed {
+    font-size: 1.5em;
   }
 }

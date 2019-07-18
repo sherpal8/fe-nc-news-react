@@ -42,7 +42,9 @@ export const checkUsername = async username => {
 
 // post comment
 export const postComment = async (article_id, username, body) => {
+  // first check username exists
   const { user } = await checkUsername(username);
+  // only then delete
   if (user) {
     const { data } = await axios.post(
       `${BASE_URL}/articles/${article_id}/comments`,

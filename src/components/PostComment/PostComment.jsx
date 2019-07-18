@@ -60,7 +60,7 @@ class PostComment extends Component {
         })
         .catch(err => {
           navigate("/error", {
-            state: { message: "Gentle request. Valid username please." }
+            state: { message: "Gentle request. Registered username required." }
           });
         });
     } else {

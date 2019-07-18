@@ -23,7 +23,7 @@ class App extends Component {
           <ArticleById path="/articles/:article_id" />
           <PostComment path="/postComment/:article_id" />
           <Error path="/error" />
-          <DeleteComment path="/deleteComment/:article_id/:comment_id" />
+          <DeleteComment path="/deleteComment/:article_id/:author/:comment_id" />
         </Router>
         <Footer className="footer" />
       </div>
