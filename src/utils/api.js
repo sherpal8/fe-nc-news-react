@@ -2,8 +2,6 @@ import axios from "axios";
 
 const BASE_URL = "https://be-nc-news-sherpal.herokuapp.com/api";
 
-// const BASE_URL = "https://bencnews.herokuapp.com/";
-
 // get topics
 export const getTopics = async () => {
   const {
@@ -34,7 +32,7 @@ export const getCommentsByArticleId = async article_id => {
   return data.comments;
 };
 
-// check username
+// get username
 export const checkUsername = async username => {
   const { data } = await axios.get(`${BASE_URL}/users/${username}`);
   return data;
