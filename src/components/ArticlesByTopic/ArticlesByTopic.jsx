@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./ArticlesByTopic.css";
 import * as api from "../../utils/api.js";
 import ArticleCard from "../ArticleCard/ArticleCard";
+import { navigate } from "@reach/router";
 
 class ArticlesByTopic extends Component {
   state = { articles: [], sort_by: "created_at" };

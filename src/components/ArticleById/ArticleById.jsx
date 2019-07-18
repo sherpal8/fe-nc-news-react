@@ -78,12 +78,17 @@ class ArticlePage extends Component {
 
   componentDidMount() {
     const { article_id } = this.props;
-    api.getArticleById(article_id).then(article => {
-      this.setState({ article });
-    });
-    api.getCommentsByArticleId(article_id).then(comments => {
-      this.setState({ comments });
-    });
+    api
+      .getArticleById(article_id)
+      .then(article => {
+        this.setState({ article });
+        api.getCommentsByArticleId(article_id).then(comments => {
+          this.setState({ comments });
+        });
+      })
+      .catch(err => {
+        navigate(`/error`);
+      });
   }
 }
 
