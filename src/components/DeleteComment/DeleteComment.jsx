@@ -4,9 +4,9 @@ import * as api from "../../utils/api";
 import { navigate } from "@reach/router";
 
 class DeleteComment extends Component {
-  state = { username: "", password: "" };
+  state = { username: "", password: "", fullname: "" };
   render() {
-    const { username, password } = this.state;
+    const { username, password, fullname } = this.state;
     return (
       <div>
         <div>
@@ -22,6 +22,15 @@ class DeleteComment extends Component {
                 type="text"
                 id="username"
                 value={username}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="fullname">Confirm full name: </label>
+              <input
+                type="text"
+                id="fullname"
+                value={fullname}
                 onChange={this.handleChange}
               />
             </div>
@@ -62,19 +71,22 @@ class DeleteComment extends Component {
   // if user decides to delte button
   buttonClickedYes = async event => {
     event.preventDefault();
-    let { username, password } = this.state;
+    let { username, password, fullname } = this.state;
     const { comment_id, article_id, author } = this.props;
-
     //to check entry fields not empty
-    if (username.length > 0 && password.length > 0) {
+    if (username.length > 0 && password.length > 0 && fullname.length > 0) {
       // author can only delete own comment
       if (username === author) {
-        // confirm username still exists in backend
-        // ideally, backend will fetch both username & password
+        // get registered name and password from backend
+        // ideally, backend will fetch both username, password, name
         const { user } = await api.checkUsername(username);
-        // password hardcoded for now - ideally retired from backend
+        console.log(user);
+        // password hardcoded for now - ideally retrieved from backend
         password = "123";
-        if (user.username.length > 0 && password === "123") {
+        // to sake of ease, name (fullname) hardcoded for now
+        const name = "Jess Jelly";
+        // only if registered name and password matched with database
+        if (user.name === fullname && password === "123") {
           // successful delete
           api.deleteComment(comment_id).then(() => {
             navigate(`/articles/${article_id}`, {
@@ -85,7 +97,8 @@ class DeleteComment extends Component {
           // if incorrect password
           navigate(`/articles/${article_id}`, {
             state: {
-              msgFail: "Gentle request. Please insert correct password."
+              msgFail:
+                "Gentle request. Please insert correct password or registered fullname."
             }
           });
         }
