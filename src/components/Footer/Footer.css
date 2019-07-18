@@ -1,6 +1,6 @@
 .footer-div {
-  /* background-color: orange; */
   padding: 2em;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: bolder;
+  background-color: orange;
 }

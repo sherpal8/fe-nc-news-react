@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../utils/api";
 import "./ArticleById.css";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import Votes from "../Votes/Votes";
 
 class ArticlePage extends Component {
@@ -14,41 +14,63 @@ class ArticlePage extends Component {
   };
   render() {
     const {
-      article: { title, body, comment_count, votes, article_id, comment_id },
+      article: { title, body, comment_count, votes, article_id },
       comments
     } = this.state;
     return (
       <div>
-        <div className="article-div">
-          <h1>{title}</h1>
+        <div className="ArticleById__div">
+          <h2>{title}</h2>
           <p>{body}</p>
           <Votes votes={votes} id={article_id} section="articles" />
           <p>Number of comments: {comment_count}</p>
         </div>
         <div>
-          {this.props.location.state.postSuccessful && (
-            <p>Comment post successful</p>
-          )}
           <Link to={`/postComment/${article_id}`}>
-            <button>Post comment!</button>
+            <button>Post your comment!</button>
           </Link>
+
+          {this.props.location.state.postSuccessful && (
+            <p className="ArticleById__p--successful">
+              Comment post successful!
+            </p>
+          )}
+          {this.props.location.state.isDeleted && (
+            <p className="ArticleById__p--successful">
+              Comment delete successful!
+            </p>
+          )}
+          {this.props.location.state.failedDelete && (
+            <p className="ArticleById__p--failed">
+              Gentle note: Incorrect username and/or password.
+            </p>
+          )}
         </div>
         <div>
-          Comments as below:
-          <ul className="comment-ul">
+          <h3 className="ArticleById__h3--comments">Comments:</h3>
+          <ul>
             {comments.map(comment => {
               return (
-                <li key={comment.comment_id} className="comment-list">
-                  <p>
-                    Comment by {comment.author} on{" "}
-                    {comment.created_at.slice(0, 10)}
-                  </p>
-                  <p>{body}</p>
-                  <Votes
-                    votes={comment.votes}
-                    id={comment.comment_id}
-                    section="comments"
-                  />
+                <li key={comment.comment_id} className="ArticleById__list">
+                  <div>
+                    <Votes
+                      votes={comment.votes}
+                      id={comment.comment_id}
+                      section="comments"
+                    />
+                  </div>
+                  <div>
+                    <p>
+                      Comment by {comment.author} on{" "}
+                      {comment.created_at.slice(0, 10)}
+                    </p>
+                    <p>{comment.body}</p>
+                  </div>
+                  <Link
+                    to={`/deleteComment/${article_id}/${comment.comment_id}`}
+                  >
+                    <button>Delete comment</button>
+                  </Link>
                 </li>
               );
             })}

@@ -11,12 +11,11 @@ class Nav extends Component {
     const topicsArr = this.state.topics;
     return (
       <div>
-        {/* // main navbar */}
-        <nav className="nav">
+        <nav className="Nav">
           <Link to="/">Home - All articles</Link>
           {topicsArr.map(({ slug }) => {
             return (
-              <Link className="nav-link" to={`topics/${slug}`} key={slug}>
+              <Link className="Nav__link" to={`topics/${slug}`} key={slug}>
                 {slug}
               </Link>
             );

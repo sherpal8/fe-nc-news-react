@@ -7,6 +7,8 @@ import Articles from "./components/Articles/Articles";
 import ArticlesByTopic from "./components/ArticlesByTopic/ArticlesByTopic";
 import ArticleById from "./components/ArticleById/ArticleById";
 import PostComment from "./components/PostComment/PostComment";
+import Error from "./components/Error/Error";
+import DeleteComment from "./components/DeleteComment/DeleteComment";
 import { Router } from "@reach/router";
 
 class App extends Component {
@@ -20,6 +22,8 @@ class App extends Component {
           <ArticlesByTopic path="/topics/:topic" />
           <ArticleById path="/articles/:article_id" />
           <PostComment path="/postComment/:article_id" />
+          <Error path="/error" />
+          <DeleteComment path="/deleteComment/:article_id/:comment_id" />
         </Router>
         <Footer className="footer" />
       </div>

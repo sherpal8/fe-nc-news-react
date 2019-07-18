@@ -10,23 +10,29 @@ class Votes extends Component {
     return (
       <div>
         {err && <p>Oops, error. Please try again.</p>}
-        <p>Votes: {votes + voteChange}</p>
-        <button
-          onClick={() => {
-            this.voteFunction(1);
-          }}
-          disabled={voteChange === 1}
-        >
-          +
-        </button>
-        <button
-          onClick={() => {
-            this.voteFunction(-1);
-          }}
-          disabled={voteChange === -1}
-        >
-          -
-        </button>
+        <div>
+          <p>Votes: {votes + voteChange}</p>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              this.voteFunction(1);
+            }}
+            disabled={voteChange === 1}
+          >
+            +
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              this.voteFunction(-1);
+            }}
+            disabled={voteChange === -1}
+          >
+            -
+          </button>
+        </div>
       </div>
     );
   }

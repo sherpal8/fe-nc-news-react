@@ -9,22 +9,33 @@ class PostComment extends Component {
     const { username, body } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="username"> Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="body">Comment:</label>
-          <input
-            type="text"
-            id="body"
-            value={body}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Submit comment !</button>
+        <form onSubmit={this.handleSubmit} className="PostComment__form">
+          <div>
+            <label htmlFor="username"> Username: </label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="body">Comment: </label>
+            <textarea
+              rows="10"
+              cols="18"
+              name="body"
+              id="body"
+              value={body}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <button type="submit" className="PostComment__button">
+              Submit comment !
+            </button>
+          </div>
         </form>
       </div>
     );
@@ -39,17 +50,20 @@ class PostComment extends Component {
     const article_id = this.props.article_id;
     const { username, body } = this.state;
     event.preventDefault();
-    api
-      .postComment(article_id, username, body)
-      .then(() => {
-        navigate(`/articles/${article_id}`, {
-          state: { postSuccessful: true }
+    if (body.length > 0 && username.length > 0) {
+      api
+        .postComment(article_id, username, body)
+        .then(() => {
+          navigate(`/articles/${article_id}`, {
+            state: { postSuccessful: true }
+          });
+        })
+        .catch(err => {
+          navigate("/error");
         });
-      })
-      .catch(err => {
-        // todo: create in router and error.jsx
-        navigate("/error");
-      });
+    } else {
+      navigate("/error");
+    }
   };
 }
 

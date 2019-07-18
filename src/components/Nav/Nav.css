@@ -1,4 +1,4 @@
-.nav {
+.Nav {
   grid-area: "nav";
   display: flex;
   flex-wrap: wrap;
@@ -6,13 +6,6 @@
   padding: 2em;
 }
 
-.nav2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 2em;
-}
-
-.nav-link {
+.Nav__link {
   text-transform: capitalize;
 }

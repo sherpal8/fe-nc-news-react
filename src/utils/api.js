@@ -36,6 +36,7 @@ export const getCommentsByArticleId = async article_id => {
 
 // post comment
 export const postComment = async (article_id, username, body) => {
+  // username temporarily hardcoded for test website
   username = "jessjelly";
   const { data } = await axios.post(
     `${BASE_URL}/articles/${article_id}/comments`,
@@ -50,4 +51,9 @@ export const voteChanger = async (id, inc_votes, section) => {
     inc_votes
   });
   return data.article;
+};
+
+// delete comment
+export const deleteComment = async comment_id => {
+  axios.delete(`${BASE_URL}/comments/${comment_id}`);
 };

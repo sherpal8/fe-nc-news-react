@@ -1,15 +1,17 @@
-.articleCard {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 1em;
-  margin: 0 auto 1em auto;
-  border: 1px solid black;
-  width: 50%;
+.ArticleCard {
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: 100px auto;
 }
 
-.articleCard span {
+.ArticleCard__div {
+  margin: auto;
+}
+
+.ArticleCard__span {
   color: darkorange;
   font-weight: bolder;
 }

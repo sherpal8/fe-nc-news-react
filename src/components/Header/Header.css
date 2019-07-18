@@ -2,8 +2,9 @@
   grid-area: "header";
 }
 
-.header-div {
+.header__div {
   font-size: 2em;
   padding: 1em;
-  /* background-color: orange; */
+  font-weight: bolder;
+  background-color: orange;
 }

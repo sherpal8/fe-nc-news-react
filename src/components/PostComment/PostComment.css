@@ -1,0 +1,9 @@
+.PostComment__button {
+  font-weight: bolder;
+  color: white;
+  font-size: 1.2em;
+  border-radius: 0.4em;
+  margin: 1em auto auto 1em;
+  padding: 0.2em;
+  background-color: darkgreen;
+}
