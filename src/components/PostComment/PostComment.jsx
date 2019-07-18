@@ -4,9 +4,9 @@ import * as api from "../../utils/api";
 import { navigate } from "@reach/router";
 
 class PostComment extends Component {
-  state = { username: "", body: "" };
+  state = { username: "", body: "", fullname: "", password: "" };
   render() {
-    const { username, body } = this.state;
+    const { username, body, fullname, password } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="PostComment__form">
@@ -16,6 +16,26 @@ class PostComment extends Component {
               type="text"
               id="username"
               value={username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="fullname"> Full name: </label>
+            <input
+              type="text"
+              id="fullname"
+              value={fullname}
+              onChange={this.handleChange}
+            />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="password"> Password: </label>
+            <input
+              type="text"
+              id="password"
+              value={password}
               onChange={this.handleChange}
             />
           </div>
@@ -46,25 +66,39 @@ class PostComment extends Component {
     this.setState({ [id]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     const article_id = this.props.article_id;
-    const { username, body } = this.state;
+    const { username, body, fullname, password } = this.state;
+
     event.preventDefault();
-    if (body.length > 0 && username.length > 0) {
-      api
-        .postComment(article_id, username, body)
-        .then(() => {
+
+    // check all fields entered
+    if (body && fullname && password && username) {
+      // check username against database
+      const { user } = await api.checkUsername(username);
+      // Ideally, const password should match database. However, for now,
+      // passed into password1
+      let password1 = +password;
+      // password1 then hardcoded to numbers 123
+      password1 = 123;
+
+      // compare full name with registered name in database
+      if (user.name === fullname && password1 === 123) {
+        api.postComment(article_id, username, body).then(() => {
           navigate(`/articles/${article_id}`, {
             state: { msgSuccess: "Post comment successful." }
           });
-        })
-        .catch(err => {
-          navigate("/error", {
-            state: { message: "Gentle request. Registered username required." }
-          });
         });
+      } else {
+        navigate(`/error`, {
+          state: {
+            message:
+              "Gentle request. Registered fullname and password required."
+          }
+        });
+      }
     } else {
-      navigate("/error", {
+      navigate(`/error`, {
         state: { message: "Gentle request. No empty fields please. " }
       });
     }

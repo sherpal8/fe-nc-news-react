@@ -71,22 +71,25 @@ class DeleteComment extends Component {
   // if user decides to delte button
   buttonClickedYes = async event => {
     event.preventDefault();
-    let { username, password, fullname } = this.state;
+    const { username, password, fullname } = this.state;
     const { comment_id, article_id, author } = this.props;
     //to check entry fields not empty
-    if (username.length > 0 && password.length > 0 && fullname.length > 0) {
+    if (username && password && fullname) {
       // author can only delete own comment
       if (username === author) {
         // get registered name and password from backend
-        // ideally, backend will fetch both username, password, name
+        // ideally, backend will fetch username, password, registered name
         const { user } = await api.checkUsername(username);
-        console.log(user);
-        // password hardcoded for now - ideally retrieved from backend
-        password = "123";
+        // for now, *const* password attributed into password1
+        let password1 = password;
+        // password1 then hardcoded with value numbers 123
+        password1 = 123;
         // to sake of ease, name (fullname) hardcoded for now
-        const name = "Jess Jelly";
-        // only if registered name and password matched with database
-        if (user.name === fullname && password === "123") {
+        let fullname1 = fullname;
+        fullname1 = "Jess Jelly";
+        // only if registered fullname (proxy fullname1)
+        // and password matches with database {user} object
+        if (user.name === fullname1 && password1 === 123) {
           // successful delete
           api.deleteComment(comment_id).then(() => {
             navigate(`/articles/${article_id}`, {
