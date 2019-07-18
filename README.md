@@ -18,6 +18,7 @@ Getting started:
 Futher information:
 
 1. Link to hosted version of the project as below:
+   https://sherpal-fe-nc-news-react.netlify.com/
 
 2. Link to the GitHub repository of this project i.e. front-ent:
    https://github.com/sherpal8/fe-nc-news-react
