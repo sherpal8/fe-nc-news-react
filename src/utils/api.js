@@ -34,15 +34,25 @@ export const getCommentsByArticleId = async article_id => {
   return data.comments;
 };
 
+// check username
+export const checkUsername = async username => {
+  const { data } = await axios.get(`${BASE_URL}/users/${username}`);
+  return data;
+};
+
 // post comment
 export const postComment = async (article_id, username, body) => {
-  // username temporarily hardcoded for test website
-  username = "jessjelly";
-  const { data } = await axios.post(
-    `${BASE_URL}/articles/${article_id}/comments`,
-    { username, body }
-  );
-  return data.comment;
+  const { user } = await checkUsername(username);
+  if (user) {
+    const { data } = await axios.post(
+      `${BASE_URL}/articles/${article_id}/comments`,
+      {
+        username,
+        body
+      }
+    );
+    return data.comment;
+  }
 };
 
 // vote changer

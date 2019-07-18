@@ -1,10 +1,10 @@
 import React from "react";
 import "./Error.css";
 
-const Error = () => {
+const Error = props => {
   return (
-    <div className="Error__div">
-      Gentle request, please fill details correctly.
+    <div>
+      <div className="Error__div">{props.location.state.message}</div>
     </div>
   );
 };

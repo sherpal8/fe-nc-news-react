@@ -58,29 +58,40 @@ class DeleteComment extends Component {
     this.setState({ [id]: value });
   };
 
-  buttonClickedYes = event => {
+  buttonClickedYes = async event => {
     event.preventDefault();
     let { username, password } = this.state;
     const { comment_id, article_id } = this.props;
 
     if (username.length > 0 && password.length > 0) {
-      // temporary hardcoded username and password
-      username = "jessjelly";
-      password = 123;
-      if (username === "jessjelly" && password === 123) {
-        api
-          .deleteComment(comment_id)
-          .then(() => {
-            navigate(`/articles/${article_id}`, { state: { isDeleted: true } });
-          })
-          .catch(err => {
-            navigate(`/error/`);
+      const { user } = await api.checkUsername(username);
+      // password hardcoded for now
+      password = "123";
+      if (user.username.length > 0) {
+        if (password === "123") {
+          api.deleteComment(comment_id).then(() => {
+            navigate(`/articles/${article_id}`, {
+              state: { msgSuccess: "Comment delete successful!" }
+            });
           });
+        } else {
+          navigate(`/articles/${article_id}`, {
+            state: { msgFail: "Gentle request. Please insert correct password" }
+          });
+        }
       } else {
-        navigate(`/articles/${article_id}`, { state: { failedDelete: true } });
+        navigate(`/articles/${article_id}`, {
+          state: {
+            msgFail: "Gentle request. Please enter correct username"
+          }
+        });
       }
     } else {
-      navigate(`/error/`);
+      navigate(`/articles/${article_id}`, {
+        state: {
+          msgFail: "Gentle request. Please fill in all entries for delete."
+        }
+      });
     }
   };
 

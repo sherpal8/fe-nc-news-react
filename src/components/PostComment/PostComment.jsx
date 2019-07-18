@@ -59,10 +59,14 @@ class PostComment extends Component {
           });
         })
         .catch(err => {
-          navigate("/error");
+          navigate("/error", {
+            state: { message: "Gentle request. Valid username please." }
+          });
         });
     } else {
-      navigate("/error");
+      navigate("/error", {
+        state: { message: "Gentle request. No empty fields please. " }
+      });
     }
   };
 }

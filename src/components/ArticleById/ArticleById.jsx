@@ -29,22 +29,12 @@ class ArticlePage extends Component {
           <Link to={`/postComment/${article_id}`}>
             <button>Post your comment!</button>
           </Link>
-
-          {this.props.location.state.postSuccessful && (
-            <p className="ArticleById__p--successful">
-              Comment post successful!
-            </p>
-          )}
-          {this.props.location.state.isDeleted && (
-            <p className="ArticleById__p--successful">
-              Comment delete successful!
-            </p>
-          )}
-          {this.props.location.state.failedDelete && (
-            <p className="ArticleById__p--failed">
-              Gentle note: Incorrect username and/or password.
-            </p>
-          )}
+          <p className="ArticleById__p--successful">
+            {this.props.location.state.msgSuccess}
+          </p>
+          <p className="ArticleById__p--failed">
+            {this.props.location.state.msgFail}
+          </p>
         </div>
         <div>
           <h3 className="ArticleById__h3--comments">Comments:</h3>
