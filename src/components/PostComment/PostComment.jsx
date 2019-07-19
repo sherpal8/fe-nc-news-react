@@ -75,28 +75,38 @@ class PostComment extends Component {
     // check all fields entered
     if (body && fullname && password && username) {
       // check username against database
-      const { user } = await api.checkUsername(username);
-      // Ideally, const password should match database. However, for now,
-      // passed into password1
-      let password1 = +password;
-      // password1 then hardcoded to numbers 123
-      password1 = 123;
-
-      // compare full name with registered name in database
-      if (user.name === fullname && password1 === 123) {
-        api.postComment(article_id, username, body).then(() => {
-          navigate(`/articles/${article_id}`, {
-            state: { msgSuccess: "Post comment successful." }
-          });
-        });
-      } else {
-        navigate(`/error`, {
-          state: {
-            message:
-              "Gentle request. Registered fullname and password required."
+      api
+        .checkUsername(username)
+        .then(({ user }) => {
+          // Ideally, *const* password should match database.
+          // However, for now,
+          // value passed into 'let' password1
+          let password1 = +password;
+          // password1 then hardcoded to numbers 123
+          password1 = 123;
+          // compare full name with registered name in database
+          if (user.name === fullname && password1 === 123) {
+            api.postComment(article_id, username, body).then(() => {
+              navigate(`/articles/${article_id}`, {
+                state: { msgSuccess: "Post comment successful." }
+              });
+            });
+          } else {
+            navigate(`/error`, {
+              state: {
+                message:
+                  "Gentle request. Registered fullname and password required."
+              }
+            });
           }
+        })
+        .catch(err => {
+          // if username not in database
+          navigate(`/error`, {
+            state: { message: "Gentle request. Valid username required. " }
+          });
+          console.log(err);
         });
-      }
     } else {
       navigate(`/error`, {
         state: { message: "Gentle request. No empty fields please. " }
