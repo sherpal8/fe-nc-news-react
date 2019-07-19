@@ -5,7 +5,7 @@ Licence: Standard MIT
 Brief description:
 This is `fe-nc-news-react`. It is the frontend interface for a prior backend project titled `be-nc-news-sherpal`. This is a social news aggregation, web content rating, and discussion website. It is not too dissimilar to Reddit.
 
-You will be logged in as a default user `Jess Jelly`.
+At the top right, you will note that you are logged in by default as username `jessjelly`.
 
 **Gentle note: Important**
 To post and delete comments, you will need to enter all 3 details below as it matches the database (credentials) in the backend.
