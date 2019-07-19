@@ -19,8 +19,6 @@ Minimum dependencies' versions as below:
 "dependencies": {
 "@reach/router": "^1.2.1",
 "axios": "^0.19.0",
-"cors": "^2.8.5",
-"cypress": "^3.4.0",
 "react": "^16.8.6",
 "react-dom": "^16.8.6",
 "react-scripts": "3.0.1"
