@@ -87,7 +87,9 @@ class ArticlePage extends Component {
         });
       })
       .catch(err => {
-        navigate(`/error`);
+        navigate(`/error`, {
+          state: { message: "Gentle note. Article not found." }
+        });
       });
   }
 }
