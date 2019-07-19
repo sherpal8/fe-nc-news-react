@@ -7,7 +7,7 @@ class ArticlesByTopic extends Component {
   state = { articles: [], sort_by: "created_at" };
   render() {
     const topicSearch = this.props.topic;
-    const articlesByTopic = this.state.articles;
+    const { articles } = this.state;
     return (
       <div>
         <h2>Articles on {topicSearch}</h2>
@@ -21,7 +21,7 @@ class ArticlesByTopic extends Component {
           <button type="submit">Sort articles!</button>
         </form>
         <ul>
-          {articlesByTopic.map(article => {
+          {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
         </ul>
