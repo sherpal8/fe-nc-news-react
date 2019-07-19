@@ -5,7 +5,7 @@ import * as api from "../../utils/api.js";
 
 class Nav extends Component {
   state = {
-    topics: [{ slug: "Football" }, { slug: "Gardening" }, { slug: "Cooking" }]
+    topics: []
   };
   render() {
     const topicsArr = this.state.topics;
@@ -18,7 +18,7 @@ class Nav extends Component {
           {topicsArr.map(({ slug }) => {
             return (
               <li key={slug} className="Nav__li">
-                <Link className="Nav__link" to={`topics/${slug}`} key={slug}>
+                <Link className="Nav__link" to={`/topics/${slug}`} key={slug}>
                   {slug}
                 </Link>
               </li>
