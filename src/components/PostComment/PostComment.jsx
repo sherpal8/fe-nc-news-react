@@ -33,7 +33,7 @@ class PostComment extends Component {
           <div>
             <label htmlFor="password"> Password: </label>
             <input
-              type="text"
+              type="password"
               id="password"
               value={password}
               onChange={this.handleChange}
@@ -78,14 +78,11 @@ class PostComment extends Component {
       api
         .checkUsername(username)
         .then(({ user }) => {
-          // Ideally, *const* password should match database.
-          // However, for now,
-          // value passed into 'let' password1
-          let password1 = +password;
-          // password1 then hardcoded to numbers 123
-          password1 = 123;
+          // Ideally, password should match database.
+          // But database currently deficient.
+          // For now, frontend logic hardcoded to only accept password === 123
           // compare full name with registered name in database
-          if (user.name === fullname && password1 === 123) {
+          if (user.name === fullname && +password === 123) {
             api.postComment(article_id, username, body).then(() => {
               navigate(`/articles/${article_id}`, {
                 state: { msgSuccess: "Post comment successful." }

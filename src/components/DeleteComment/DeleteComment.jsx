@@ -37,7 +37,7 @@ class DeleteComment extends Component {
             <div>
               <label htmlFor="password">Confirm password: </label>
               <input
-                type="text"
+                type="password"
                 id="password"
                 value={password}
                 onChange={this.handleChange}
@@ -80,16 +80,11 @@ class DeleteComment extends Component {
         // get registered name and password from backend
         // ideally, backend will fetch username, password, registered name
         const { user } = await api.checkUsername(username);
-        // for now, *const* password attributed into password1
-        let password1 = password;
-        // password1 then hardcoded with value numbers 123
-        password1 = 123;
-        // to sake of ease, name (fullname) hardcoded for now
-        let fullname1 = fullname;
-        fullname1 = "Jess Jelly";
-        // only if registered fullname (proxy fullname1)
-        // and password matches with database {user} object
-        if (user.name === fullname1 && password1 === 123) {
+        // Ideally, password should match database.
+        // But database currently deficient.
+        // For now, frontend logic hardcoded to only accept password === 123
+        // compare full name with registered name in database
+        if (user.name === fullname && +password === 123) {
           // successful delete
           api.deleteComment(comment_id).then(() => {
             navigate(`/articles/${article_id}`, {
