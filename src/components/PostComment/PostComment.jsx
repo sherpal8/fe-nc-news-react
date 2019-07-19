@@ -105,7 +105,6 @@ class PostComment extends Component {
           navigate(`/error`, {
             state: { message: "Gentle request. Valid username required. " }
           });
-          console.log(err);
         });
     } else {
       navigate(`/error`, {
