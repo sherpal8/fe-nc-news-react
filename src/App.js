@@ -22,7 +22,11 @@ class App extends Component {
           <ArticlesByTopic path="/topics/:topic" />
           <ArticleById path="/articles/:article_id" />
           <PostComment path="/postComment/:article_id" />
-          <Error path="/error" />
+          <Error
+            default
+            path="/error"
+            message="Gentle apologies. The page does not exist."
+          />
           <DeleteComment path="/deleteComment/:article_id/:author/:comment_id" />
         </Router>
         <Footer className="footer" />
