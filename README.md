@@ -8,7 +8,7 @@ This is `fe-nc-news-react`. It is the frontend interface for a prior backend pro
 At the top right, you will note that you are logged in by default as username `jessjelly`.
 
 **Gentle note: Important**
-To post and delete comments, you will need to enter all 3 details below as it matches the database (credentials) in the backend.
+To post and delete comments, you will need to enter all 3 details as below as it matches the database (credentials) in the backend to allow for function.
 username: jessjelly
 fullname: Jess Jelly
 password: 123
