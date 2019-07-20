@@ -1,0 +1,31 @@
+.ListComments__h3 {
+  background: orange;
+  padding: 0.5em;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.ListComments__list {
+  width: 95%;
+  border-bottom: 2px solid black;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 60px auto;
+}
+
+@media only screen and (min-width: 400px) {
+  .ListComments__h3 {
+    padding: 1em;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .ListComments__list {
+    width: 90%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto auto 1em 1em;
+  }
+}

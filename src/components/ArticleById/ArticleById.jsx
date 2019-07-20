@@ -3,6 +3,7 @@ import * as api from "../../utils/api";
 import "./ArticleById.css";
 import { Link, navigate } from "@reach/router";
 import Votes from "../Votes/Votes";
+import Comments from "../ListComments/ListComments";
 
 class ArticlePage extends Component {
   state = {
@@ -40,38 +41,7 @@ class ArticlePage extends Component {
             </p>
           ) : null}
         </div>
-        <div>
-          <h3 className="ArticleById__h3--comments">Comments:</h3>
-          <ul>
-            {comments.map(comment => {
-              return (
-                <li key={comment.comment_id} className="ArticleById__list">
-                  <div>
-                    <Votes
-                      votes={comment.votes}
-                      id={comment.comment_id}
-                      section="comments"
-                    />
-                  </div>
-                  <div>
-                    <p>
-                      Comment by {comment.author} on{" "}
-                      {comment.created_at.slice(0, 10)}
-                    </p>
-                    <p>{comment.body}</p>
-                  </div>
-                  <Link
-                    to={`/deleteComment/${article_id}/${comment.author}/${
-                      comment.comment_id
-                    }`}
-                  >
-                    <button>Delete comment</button>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <Comments article_id={article_id} comments={comments} />
       </div>
     );
   }
