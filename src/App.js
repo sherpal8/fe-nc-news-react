@@ -25,7 +25,7 @@ class App extends Component {
           <Error
             default
             path="/error"
-            message="Gentle apologies. The page does not exist."
+            message="Gentle apologies. Page does not exist."
           />
           <DeleteComment path="/deleteComment/:article_id/:author/:comment_id" />
         </Router>

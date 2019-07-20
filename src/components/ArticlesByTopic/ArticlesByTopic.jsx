@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./ArticlesByTopic.css";
 import * as api from "../../utils/api.js";
 import ArticleCard from "../ArticleCard/ArticleCard";
+import { navigate } from "@reach/router";
 
 class ArticlesByTopic extends Component {
   state = { articles: [], sort_by: "created_at" };
@@ -31,17 +32,31 @@ class ArticlesByTopic extends Component {
 
   componentDidMount = () => {
     const topicSearch = this.props.topic;
-    api.getArticles(topicSearch).then(articles => {
-      this.setState({ articles });
-    });
+    api
+      .getArticles(topicSearch)
+      .then(articles => {
+        this.setState({ articles });
+      })
+      .catch(err => {
+        navigate(`/error`, {
+          state: { message: "Gentle apologies. Topic not found." }
+        });
+      });
   };
 
   componentDidUpdate = (prevProps, prevState) => {
     if (this.props.topic !== prevProps.topic) {
       let newTopicSearch = this.props.topic;
-      api.getArticles(newTopicSearch).then(articles => {
-        this.setState({ articles });
-      });
+      api
+        .getArticles(newTopicSearch)
+        .then(articles => {
+          this.setState({ articles });
+        })
+        .catch(err => {
+          navigate(`/error`, {
+            state: { message: "Gentle apologies. Topic not found." }
+          });
+        });
     }
   };
 

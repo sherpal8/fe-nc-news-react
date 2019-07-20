@@ -92,7 +92,7 @@ class PostComment extends Component {
             navigate(`/error`, {
               state: {
                 message:
-                  "Gentle request. Registered fullname and password required."
+                  "Gentle request. Registered fullname and/ or password required."
               }
             });
           }
