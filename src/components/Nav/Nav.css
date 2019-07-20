@@ -1,10 +1,18 @@
+.Nav__p {
+  background: darkgreen;
+  font-weight: bolder;
+  color: white;
+  padding: 0.3em;
+  margin: 0;
+}
+
 .Nav {
   grid-area: "nav";
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: column;
-  padding: 2em;
+  padding: 1em;
 }
 
 .Nav__li {

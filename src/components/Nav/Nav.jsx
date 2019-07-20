@@ -11,6 +11,9 @@ class Nav extends Component {
     const topicsArr = this.state.topics;
     return (
       <div>
+        <p className="Nav__p">
+          Logged in as <i>jessjelly</i>
+        </p>
         <nav className="Nav">
           <li className="Nav__li">
             <Link to="/">Home </Link>
