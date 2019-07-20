@@ -1,6 +1,6 @@
 Title of project: `fe-nc-news-react`
 Author: Sherpal Singh
-Licence: Standard MIT
+Licence: Standard MIT Lincence
 
 Brief description:
 This is `fe-nc-news-react`. It is the frontend interface for a prior backend project titled `be-nc-news-sherpal`. This is a social news aggregation, web content rating, and discussion website. It is not too dissimilar to Reddit. In essence, it is a news app.
@@ -8,10 +8,10 @@ This is `fe-nc-news-react`. It is the frontend interface for a prior backend pro
 At the top right, you will note that you are logged in by default as username `jessjelly`.
 
 **Gentle note: Important**
-To post and delete comments, you will need to enter all 3 details as below. The username and fullname matches the database (credentials) in the backend to allow for function. Additionally, as the backend is currently deficient with regardss to passwords data, frontend functional logic has been hardcoded to accept the password as 123 only.
-username: jessjelly
-fullname: Jess Jelly
-password: 123
+To post and delete comments, you will need to enter all 3 details as below. The username and fullname matches the database (credentials) in the backend to allow for function. Additionally, as the backend is currently deficient with regards to passwords data, frontend functional logic has been hardcoded to accept the password as 123 only.
+**username**: jessjelly
+**fullname** : Jess Jelly
+**password** : 123
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -30,11 +30,11 @@ Getting started:
    Go to the GitHub repository at https://github.com/sherpal8/fe-nc-news-react
 
 2. Step 2:
-   Fork the GitHub repository into YOUR-REPOSITORY.
+   Fork the GitHub repository into your own GitHub repository **YOUR-REPOSITORY**.
 
 3. Step3:
    via the CLI: \$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-   (this will clone the files locally)
+   (this will clone the files locally to your computer)
 
 4. Step 4:
    via the CLI: \$ npm install
