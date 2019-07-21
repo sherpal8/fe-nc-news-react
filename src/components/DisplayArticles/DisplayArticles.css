@@ -16,3 +16,7 @@
   margin: 0.1em auto auto 0.1em;
   padding: 0.1em;
 }
+
+.DisplayArticles__li {
+  list-style-type: none;
+}

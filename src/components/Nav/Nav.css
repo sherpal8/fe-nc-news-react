@@ -6,33 +6,43 @@
   margin: 0;
 }
 
-.Nav {
-  grid-area: "nav";
+.Nav__nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: column;
-  padding: 1em;
+  background: darkslategray;
+  border-top: 1px solid white;
 }
 
 .Nav__li {
   text-transform: capitalize;
   list-style-type: none;
   padding: 0.5em;
+  border-bottom: 1px solid black;
 }
 
-.Nav__li a {
+.Nav__Link {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bolder;
 }
 
-.Nav__li a:hover {
-  color: orange;
+.Nav__Link:hover {
+  color: darkorange;
+  transition: 500ms;
+}
+
+.Nav__Link:focus {
+  color: darkorange;
 }
 
 @media only screen and (min-width: 400px) {
-  .Nav {
+  .Nav__nav {
     flex-direction: row;
+  }
+
+  .Nav__li {
+    border-bottom: none;
   }
 }

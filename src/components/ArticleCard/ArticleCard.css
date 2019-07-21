@@ -1,17 +1,40 @@
-.ArticleCard {
+.ArticleCard__div {
   width: 90%;
   margin: auto;
   border-bottom: 1px solid lightgray;
   padding-bottom: 50px;
   display: grid;
-  grid-template-columns: 100px auto;
+  grid-template-columns: 50px auto;
 }
 
-.ArticleCard__div {
-  margin: auto;
+.ArticleCard__div--votes {
+  margin: auto 1em auto auto;
+}
+
+.ArticleCard__Link {
+  text-decoration: none;
+  color: darkorange;
+  font-weight: bolder;
+}
+
+.ArticleCard__Link:hover {
+  color: orangered;
+  transition: 800ms;
 }
 
 .ArticleCard__span {
-  color: darkorange;
+  color: darkgreen;
   font-weight: bolder;
+}
+
+@media only screen and (min-width: 400px) {
+  .ArticleCard {
+    grid-template-columns: 100px auto;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .ArticleCard__Link {
+    font-size: 1.5em;
+  }
 }

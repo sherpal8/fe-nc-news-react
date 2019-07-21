@@ -14,14 +14,16 @@ class Nav extends Component {
         <p className="Nav__p">
           Logged in as <i>jessjelly</i>
         </p>
-        <nav className="Nav">
+        <nav className="Nav__nav">
           <li className="Nav__li">
-            <Link to="/">Home </Link>
+            <Link className="Nav__Link" to="/">
+              Home
+            </Link>
           </li>
           {topicsArr.map(({ slug }) => {
             return (
               <li key={slug} className="Nav__li">
-                <Link className="Nav__link" to={`/topics/${slug}`} key={slug}>
+                <Link className="Nav__Link" to={`/topics/${slug}`} key={slug}>
                   {slug}
                 </Link>
               </li>

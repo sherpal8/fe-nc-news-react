@@ -31,7 +31,11 @@ class DisplayArticles extends Component {
         </form>
         <ul>
           {articles.map(article => {
-            return <ArticleCard article={article} key={article.article_id} />;
+            return (
+              <li className="DisplayArticles__li" key={article.article_id}>
+                <ArticleCard article={article} key={article.article_id} />
+              </li>
+            );
           })}
         </ul>
       </div>

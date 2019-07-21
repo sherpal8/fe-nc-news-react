@@ -7,12 +7,12 @@ const ArticleCard = ({
   article: { article_id, author, title, votes, comment_count, created_at }
 }) => {
   return (
-    <div className="ArticleCard">
-      <div className="ArticleCard__div">
+    <div className="ArticleCard__div">
+      <div className="ArticleCard__div--votes">
         <Votes votes={votes} id={article_id} section="articles" />
       </div>
       <div>
-        <Link to={`/articles/${article_id}`}>
+        <Link className="ArticleCard__Link" to={`/articles/${article_id}`}>
           <h3>{title}</h3>
         </Link>
         <p>
