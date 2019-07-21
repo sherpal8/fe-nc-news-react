@@ -14,6 +14,7 @@ class Votes extends Component {
         <div>
           <button
             className="Votes__button"
+            aria-label="upvote-button"
             onClick={() => {
               this.voteFunction(1);
             }}
@@ -28,6 +29,7 @@ class Votes extends Component {
         <div>
           <button
             className="Votes__button"
+            aria-label="upvote-button"
             onClick={() => {
               this.voteFunction(-1);
             }}

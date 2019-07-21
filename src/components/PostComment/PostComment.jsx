@@ -9,7 +9,11 @@ class PostComment extends Component {
     const { username, body, fullname, password } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit} className="PostComment__form">
+        <form
+          onSubmit={this.handleSubmit}
+          className="PostComment__form"
+          aria-label="Post-Comment-Form"
+        >
           <div>
             <label htmlFor="username"> Username: </label>
             <input

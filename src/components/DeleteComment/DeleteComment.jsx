@@ -19,7 +19,10 @@ class DeleteComment extends Component {
           </p>
         )}
         <div>
-          <form onSubmit={this.buttonClickedYes}>
+          <form
+            onSubmit={this.buttonClickedYes}
+            aria-label="Delete-Comment-Form"
+          >
             <div>
               <label htmlFor="username">Confirm username: </label>
               <input
