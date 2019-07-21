@@ -15,7 +15,7 @@ To post and delete comments, you will need to enter all 3 details as below. The 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Minimum dependencies' versions as below:
+Minimum dependency versions as below:
 "dependencies": {
 "@reach/router": "^1.2.1",
 "axios": "^0.19.0",
