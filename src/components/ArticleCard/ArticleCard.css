@@ -13,13 +13,13 @@
 
 .ArticleCard__Link {
   text-decoration: none;
-  color: darkorange;
+  color: orangered;
   font-weight: bolder;
 }
 
 .ArticleCard__Link:hover {
-  color: orangered;
-  transition: 800ms;
+  color: darkgreen;
+  transition: 1000ms;
 }
 
 .ArticleCard__span {
@@ -33,7 +33,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 900px) {
   .ArticleCard__Link {
     font-size: 1.5em;
   }
