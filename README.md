@@ -32,17 +32,17 @@ Getting started:
 2. Step 2:
    Fork the GitHub repository into your own GitHub repository **YOUR-REPOSITORY**.
 
-3. Step3:
+3. Step 3:
    via the CLI: \$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
    (this will clone the files locally to your computer)
 
 4. Step 4:
-   via the CLI: \$ npm install
-   (this will install the required files for the node module)
-
-5. Step 5:
    via the CLI: \$ cd fe-nc-news-react
    (this will bring you to the correct directory prior to npm start)
+
+5. Step 5:
+   via the CLI: \$ npm install
+   (this will install the required files for the node module)
 
 6. Step 6:
    via the CLI: \$ npm start
