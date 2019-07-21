@@ -1,0 +1,18 @@
+.DisplayArticles__select,
+.DisplayArticles__button {
+  border: 1px solid black;
+  font-weight: bolder;
+  font-size: 1em;
+}
+
+.DisplayArticles__select {
+  padding: 0.2em;
+}
+
+.DisplayArticles__button {
+  color: white;
+  background-color: darkgreen;
+  border-radius: 0.3em;
+  margin: 0.1em auto auto 0.1em;
+  padding: 0.1em;
+}

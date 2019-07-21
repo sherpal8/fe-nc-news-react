@@ -5,12 +5,29 @@
   border-bottom: 1px solid black;
 }
 
+.ListComments__ul {
+  padding-right: 1.7em;
+  padding-left: 0.5em;
+}
+
 .ListComments__list {
   width: 95%;
   border-bottom: 2px solid black;
   list-style: none;
   display: grid;
   grid-template-columns: 60px auto;
+  padding: 1em;
+}
+
+.ListComments__button {
+  color: white;
+  background-color: red;
+  border-radius: 0.3em;
+  padding: 0.1em;
+  border: 1px solid black;
+  font-weight: bolder;
+  margin-top: 0.5em;
+  font-size: 1em;
 }
 
 @media only screen and (min-width: 400px) {
@@ -19,13 +36,28 @@
     border-top: 2px solid black;
     border-bottom: 2px solid black;
   }
+
+  .ListComments__ul {
+    padding-left: 0em;
+    padding-right: 0em;
+  }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1000px) {
   .ListComments__list {
     width: 90%;
     border: 2px solid black;
     padding: 1em;
     margin: auto auto 1em 1em;
+  }
+
+  .ListComments__ul {
+    padding-left: 2em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ListComments__ul {
+    padding-left: 3.5em;
   }
 }

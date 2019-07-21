@@ -1,0 +1,23 @@
+.Votes__button {
+  background-color: transparent;
+  border: none;
+}
+
+.fa-arrow-alt-circle-up {
+  color: darkgreen;
+  font-size: 2em;
+}
+
+.fa-arrow-alt-circle-down {
+  color: red;
+  font-size: 2em;
+}
+
+@media only screen and (min-width: 600px) {
+  .fa-arrow-alt-circle-up {
+    font-size: 2.5em;
+  }
+  .fa-arrow-alt-circle-down {
+    font-size: 2.5em;
+  }
+}

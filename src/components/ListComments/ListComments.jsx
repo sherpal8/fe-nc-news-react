@@ -8,7 +8,7 @@ const ListComments = props => {
   return (
     <div>
       <h3 className="ListComments__h3">Comments:</h3>
-      <ul>
+      <ul className="ListComments__ul">
         {comments.map(comment => {
           return (
             <li key={comment.comment_id} className="ListComments__list">
@@ -24,14 +24,14 @@ const ListComments = props => {
                   Comment by {comment.author} on{" "}
                   {comment.created_at.slice(0, 10)}
                 </p>
-                <p>{comment.body}</p>
+                <p>"{comment.body}"</p>
               </div>
               <Link
                 to={`/deleteComment/${article_id}/${comment.author}/${
                   comment.comment_id
                 }`}
               >
-                <button>Delete comment</button>
+                <button className="ListComments__button">Delete</button>
               </Link>
             </li>
           );

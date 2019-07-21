@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../utils/api.js";
 import PropTypes from "prop-types";
+import "./Votes.css";
 
 class Votes extends Component {
   state = { voteChange: 0, err: null };
@@ -11,26 +12,28 @@ class Votes extends Component {
       <div>
         {err && <p>Oops, error. Please try again.</p>}
         <div>
-          <p>Votes: {votes + voteChange}</p>
-        </div>
-        <div>
           <button
+            className="Votes__button"
             onClick={() => {
               this.voteFunction(1);
             }}
             disabled={voteChange === 1}
           >
-            +
+            <i className="fas fa-arrow-alt-circle-up" />
           </button>
         </div>
         <div>
+          <p>Votes: {votes + voteChange}</p>
+        </div>
+        <div>
           <button
+            className="Votes__button"
             onClick={() => {
               this.voteFunction(-1);
             }}
             disabled={voteChange === -1}
           >
-            -
+            <i className="fas fa-arrow-alt-circle-down" />
           </button>
         </div>
       </div>

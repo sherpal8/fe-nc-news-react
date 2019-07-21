@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../utils/api.js";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import { navigate } from "@reach/router";
+import "./DisplayArticles.css";
 
 class DisplayArticles extends Component {
   state = { articles: [], sort_by: "created_at" };
@@ -16,13 +17,17 @@ class DisplayArticles extends Component {
             : `Home - All topics`}
         </h2>
         <form onSubmit={this.handleSubmit}>
-          <p>Sort articles by:</p>
-          <select onChange={this.handleChange}>
+          <select
+            className="DisplayArticles__select"
+            onChange={this.handleChange}
+          >
             <option value="created_at">Date created</option>
             <option value="comment_count">Comment count</option>
             <option value="votes">Votes</option>
           </select>
-          <button type="submit">Sort articles!</button>
+          <button className="DisplayArticles__button" type="submit">
+            Sort articles!
+          </button>
         </form>
         <ul>
           {articles.map(article => {

@@ -4,16 +4,20 @@ import * as api from "../../utils/api";
 import { navigate } from "@reach/router";
 
 class DeleteComment extends Component {
-  state = { username: "", password: "", fullname: "" };
+  state = { username: "", password: "", fullname: "", msgFail: "" };
   render() {
-    const { username, password, fullname } = this.state;
+    const { username, password, fullname, msgFail } = this.state;
     return (
       <div>
-        <div>
+        {msgFail.length > 0 ? (
+          <p className="DeleteComment__p DeleteComment__p--msgFail">
+            {msgFail}
+          </p>
+        ) : (
           <p className="DeleteComment__p">
             Are you sure you want to delete this comment?
           </p>
-        </div>
+        )}
         <div>
           <form onSubmit={this.buttonClickedYes}>
             <div>
@@ -92,28 +96,22 @@ class DeleteComment extends Component {
             });
           });
         } else {
-          // if incorrect password
-          navigate(`/articles/${article_id}`, {
-            state: {
-              msgFail:
-                "Gentle request. Please insert correct password or registered fullname."
-            }
+          // if incorrect password or fullname (as per database)
+          this.setState({
+            msgFail:
+              "Gentle request. Please insert correct password or registered fullname."
           });
         }
       } else {
         // authors can only delete own comments
-        navigate(`/articles/${article_id}`, {
-          state: {
-            msgFail: "Gentle note. Authors may only delete own comments."
-          }
+        this.setState({
+          msgFail: "Gentle note. Authors may only delete own comments."
         });
       }
     } else {
       // if entry fields are empty
-      navigate(`/articles/${article_id}`, {
-        state: {
-          msgFail: "Gentle request. Please fill in all entries for delete."
-        }
+      this.setState({
+        msgFail: "Gentle request. Please fill in all entries for delete."
       });
     }
   };

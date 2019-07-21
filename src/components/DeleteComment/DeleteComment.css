@@ -4,13 +4,20 @@
   font-weight: bolder;
 }
 
+.DeleteComment__p--msgFail {
+  color: red;
+}
+
 .DeleteComment__button--yes,
 .DeleteComment__button--no {
-  margin-top: 1em;
-  font-size: 1.5em;
-  border-radius: 0.5em;
-  width: 15%;
-  padding: 0.2em;
+  color: white;
+  border-radius: 0.3em;
+  padding: 0.1em;
+  border: 1px solid black;
+  font-weight: bolder;
+  margin-top: 0.5em;
+  font-size: 1em;
+  width: 3em;
 }
 
 .DeleteComment__button--yes {
@@ -19,4 +26,5 @@
 
 .DeleteComment__button--no {
   background-color: green;
+  margin-bottom: 0.5em;
 }

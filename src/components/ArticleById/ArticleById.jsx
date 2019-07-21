@@ -3,7 +3,7 @@ import * as api from "../../utils/api";
 import "./ArticleById.css";
 import { Link, navigate } from "@reach/router";
 import Votes from "../Votes/Votes";
-import Comments from "../ListComments/ListComments";
+import ListComments from "../ListComments/ListComments";
 
 class ArticlePage extends Component {
   state = {
@@ -28,20 +28,20 @@ class ArticlePage extends Component {
         </div>
         <div>
           <Link to={`/postComment/${article_id}`}>
-            <button>Post your comment!</button>
+            <button className="ArticleById__button">Post your comment!</button>
           </Link>
-          {this.props.location.state ? (
-            <p className="ArticleById__p--successful">
-              {this.props.location.state.msgSuccess}
-            </p>
-          ) : null}
           {this.props.location.state ? (
             <p className="ArticleById__p--failed">
               {this.props.location.state.msgFail}
             </p>
           ) : null}
         </div>
-        <Comments article_id={article_id} comments={comments} />
+        {this.props.location.state ? (
+          <p className="ArticleById__p--successful">
+            {this.props.location.state.msgSuccess}
+          </p>
+        ) : null}
+        <ListComments article_id={article_id} comments={comments} />
       </div>
     );
   }

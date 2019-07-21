@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 import Votes from "../Votes/Votes";
 
 const ArticleCard = ({
-  article: { article_id, author, title, votes, comment_count }
+  article: { article_id, author, title, votes, comment_count, created_at }
 }) => {
   return (
     <div className="ArticleCard">
@@ -18,6 +18,7 @@ const ArticleCard = ({
         <p>
           by <span className="ArticleCard__span">{author}</span>
         </p>
+        <p>Posted on {created_at.slice(0, 10)}</p>
         <p>Comments count: {comment_count}</p>
       </div>
     </div>
