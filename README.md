@@ -5,7 +5,7 @@ Licence: Standard MIT Lincence
 Brief description:
 This is `fe-nc-news-react`. It is the frontend interface for a prior backend project titled `be-nc-news-sherpal`. This is a social news aggregation, web content rating, and discussion website. It is not too dissimilar to Reddit. In essence, it is a news app.
 
-At the top, you will note that you are logged in by default as username `jessjelly`.
+At the top of the page, you will note a statement that says you are logged in as username `jessjelly`. This is a mock. However, to actually carry out functions like DELETE and POST, log in and authentication will be required with details as right below.
 
 **Gentle note: Important**
 To post and delete comments, you will need to enter all 3 details as below. The username and fullname matches the database (credentials) in the backend to allow for function. Additionally, as the backend is currently deficient with regards to passwords data, frontend functional logic has been hardcoded to accept the password as 123 only.
