@@ -1,5 +1,8 @@
+.Login__div-success-and-logout {
+  background-color: darkgreen;
+}
+
 .Login__p--success {
-  background: darkgreen;
   font-weight: bolder;
   color: white;
   padding: 0.3em;
@@ -10,6 +13,12 @@
   color: red;
   font-size: 16px;
   font-weight: bolder;
+}
+
+.Login__button--logout {
+  background-color: red;
+  font-weight: bolder;
+  border-radius: 0.4em;
 }
 
 .Login__form {
@@ -28,6 +37,19 @@
   border: 1px solid black;
   font-weight: bolder;
   font-size: 1em;
+}
+
+@media only screen and (min-width: 400px) {
+  .Login__div-success-and-logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Login__button--logout {
+    margin-left: 1em;
+  }
 }
 
 @media only screen and (min-width: 600px) {

@@ -12,9 +12,21 @@ class Login extends Component {
           <p className="Login__p--fail">Please insert valid login details</p>
         ) : null}
         {loggedInAs.length > 0 ? (
-          <p className="Login__p--success">
-            Logged in as <i>{loggedInAs}</i>
-          </p>
+          <div className="Login__div-success-and-logout">
+            <div>
+              <p className="Login__p--success">
+                Logged in as <i>{loggedInAs}</i>
+              </p>
+            </div>
+            <div>
+              <button
+                className="Login__button--logout"
+                onClick={this.logoutHandle}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
         ) : (
           <form onSubmit={this.handleSubmit} className="Login__form">
             <div className="Login__div">
@@ -68,6 +80,12 @@ class Login extends Component {
       .catch(err => {
         this.setState({ failedLogIn: true });
       });
+  };
+
+  logoutHandle = event => {
+    this.setState({
+      loggedInAs: ""
+    });
   };
 }
 
