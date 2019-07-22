@@ -37,6 +37,7 @@ class Login extends Component {
                   id="username"
                   onChange={this.handleChange}
                   value={username}
+                  data-cy="Login_Username"
                   className="Login__input"
                 />
               </div>
@@ -47,11 +48,16 @@ class Login extends Component {
                   id="password"
                   onChange={this.handleChange}
                   value={password}
+                  data-cy="Login_Username"
                   className="Login__input"
                 />
               </div>
               <div>
-                <button type="submit" className="Login__button">
+                <button
+                  type="submit"
+                  className="Login__button"
+                  data-cy="Login_submit"
+                >
                   Login !
                 </button>
               </div>
@@ -75,6 +81,7 @@ class Login extends Component {
       .then(() => {
         if (+password === 123) {
           this.setState({ loggedInAs: username, failedLogIn: false });
+          localStorage.setItem("username", username);
         }
       })
       .catch(err => {
@@ -82,10 +89,15 @@ class Login extends Component {
       });
   };
 
+  componentDidMount = () => {
+    this.setState({ loggedInAs: localStorage.username });
+  };
+
   logoutHandle = event => {
     this.setState({
       loggedInAs: ""
     });
+    localStorage.setItem("username", "");
   };
 }
 
