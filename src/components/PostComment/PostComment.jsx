@@ -71,6 +71,8 @@ class PostComment extends Component {
     }
   };
 
+  componentDidUpdate = () => {};
+
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({ [id]: value });
