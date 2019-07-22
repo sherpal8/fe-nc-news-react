@@ -32,7 +32,11 @@ class DisplayArticles extends Component {
         <ul>
           {articles.map(article => {
             return (
-              <li className="DisplayArticles__li" key={article.article_id}>
+              <li
+                className="DisplayArticles__li"
+                data-cy="DisplayArticles_li"
+                key={article.article_id}
+              >
                 <ArticleCard
                   article={article}
                   key={article.article_id}

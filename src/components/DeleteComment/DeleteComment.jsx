@@ -24,10 +24,10 @@ class DeleteComment extends Component {
             aria-label="Delete-Comment-Form"
           >
             <div>
-              <label htmlFor="username">Confirm username: </label>
+              <label htmlFor="username-forDelete">Confirm username: </label>
               <input
                 type="text"
-                id="username"
+                id="username-forDelete"
                 value={username}
                 onChange={this.handleChange}
               />
@@ -42,10 +42,10 @@ class DeleteComment extends Component {
               />
             </div>
             <div>
-              <label htmlFor="password">Confirm password: </label>
+              <label htmlFor="password-forDelete">Confirm password: </label>
               <input
                 type="password"
-                id="password"
+                id="password-forDelete"
                 value={password}
                 onChange={this.handleChange}
               />
@@ -68,6 +68,12 @@ class DeleteComment extends Component {
       </div>
     );
   }
+
+  componentDidMount = () => {
+    if (localStorage.username) {
+      this.setState({ username: localStorage.username });
+    }
+  };
 
   // to update state with input values
   handleChange = event => {

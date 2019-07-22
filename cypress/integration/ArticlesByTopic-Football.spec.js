@@ -2,7 +2,7 @@ import { exportAllDeclaration } from "@babel/types";
 
 describe("Home/root test", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/topics/football");
   });
   it("renders the page without crashing", () => {
     expect(true).to.be.true;
@@ -36,7 +36,7 @@ describe("Home/root test", () => {
     cy.url().should("equal", "http://localhost:3000/topics/cooking");
   });
   it("renders h2 header with desired content", () => {
-    cy.get("h2").contains("Home - All topics");
+    cy.get("h2").contains("Articles on football");
   });
   it("display article has a function click button", () => {
     cy.get(".DisplayArticles__button").click();

@@ -65,6 +65,12 @@ class PostComment extends Component {
     );
   }
 
+  componentDidMount = () => {
+    if (localStorage.username) {
+      this.setState({ username: localStorage.username });
+    }
+  };
+
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({ [id]: value });
