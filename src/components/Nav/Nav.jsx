@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import "./Nav.css";
 import * as api from "../../utils/api.js";
+import Login from "../Login/Login";
 
 class Nav extends Component {
   state = {
@@ -11,9 +12,7 @@ class Nav extends Component {
     const topicsArr = this.state.topics;
     return (
       <div>
-        <p className="Nav__p">
-          Logged in as <i>jessjelly</i>
-        </p>
+        <Login />
         <nav className="Nav__nav">
           <li className="Nav__li">
             <Link className="Nav__Link" to="/">

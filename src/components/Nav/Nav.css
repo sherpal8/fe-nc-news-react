@@ -1,11 +1,3 @@
-.Nav__p {
-  background: darkgreen;
-  font-weight: bolder;
-  color: white;
-  padding: 0.3em;
-  margin: 0;
-}
-
 .Nav__nav {
   display: flex;
   flex-wrap: wrap;
