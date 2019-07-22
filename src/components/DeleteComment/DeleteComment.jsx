@@ -24,10 +24,11 @@ class DeleteComment extends Component {
             aria-label="Delete-Comment-Form"
           >
             <div>
-              <label htmlFor="username-forDelete">Confirm username: </label>
+              <label htmlFor="username">Confirm username: </label>
               <input
                 type="text"
-                id="username-forDelete"
+                id="username"
+                aria-label="usernameForDelete"
                 value={username}
                 onChange={this.handleChange}
               />
@@ -42,10 +43,11 @@ class DeleteComment extends Component {
               />
             </div>
             <div>
-              <label htmlFor="password-forDelete">Confirm password: </label>
+              <label htmlFor="password">Confirm password: </label>
               <input
                 type="password"
-                id="password-forDelete"
+                id="password"
+                aria-label="passwordForDelete"
                 value={password}
                 onChange={this.handleChange}
               />

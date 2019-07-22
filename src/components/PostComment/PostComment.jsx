@@ -15,10 +15,11 @@ class PostComment extends Component {
           aria-label="Post-Comment-Form"
         >
           <div>
-            <label htmlFor="username-forPost"> Username: </label>
+            <label htmlFor="username"> Username: </label>
             <input
               type="text"
-              id="username-forPost"
+              id="username"
+              aria-label="usernameForPost"
               value={username}
               onChange={this.handleChange}
             />
@@ -35,10 +36,11 @@ class PostComment extends Component {
           </div>
           <br />
           <div>
-            <label htmlFor="password-forPost"> Password: </label>
+            <label htmlFor="password"> Password: </label>
             <input
               type="password"
-              id="password-forPost"
+              id="password"
+              aria-label="passwordForPost"
               value={password}
               onChange={this.handleChange}
             />
