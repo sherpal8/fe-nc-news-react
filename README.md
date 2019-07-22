@@ -12,7 +12,7 @@ At the top of the page, you have the option to login. The details are as below:
 However, for the purpose of enhanced security, to POST and DELETE comments, you will need to login again and this time a registered fullname will also be required, as below.
 
 **Gentle note: Important**
-To post and delete comments, you will need to enter all 3 details as below. The username and fullname matches the database (credentials) in the backend to allow for function. Additionally, as the backend is currently deficient with regards to passwords data, frontend functional logic has been hardcoded to accept the password as 123 only.
+To POST and DELETE comments, you will need to enter all 3 details as below. However, if you are already logged in, then via the use of localStorage, the username will be auto-inserted into the username input box - for increased ease and convenience. Password, however, will need to be re-entered for security reasons. The username and fullname is then matched to the database (credentials) in the backend to allow for function. Additionally, as the backend is currently deficient with regards to passwords data, frontend functional logic has been hardcoded to accept the password as 123 only.
 **username**: jessjelly
 **fullname** : Jess Jelly
 **password** : 123
