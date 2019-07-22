@@ -11,7 +11,7 @@ class Login extends Component {
         {failedLogIn ? (
           <p className="Login__p--fail">Please insert valid login details</p>
         ) : null}
-        {loggedInAs.length > 0 ? (
+        {loggedInAs && loggedInAs.length > 0 ? (
           <div className="Login__div-success-and-logout">
             <div>
               <p className="Login__p--success">
@@ -97,7 +97,7 @@ class Login extends Component {
     this.setState({
       loggedInAs: ""
     });
-    localStorage.setItem("username", "");
+    localStorage.removeItem("username");
   };
 }
 
