@@ -15,10 +15,10 @@ class PostComment extends Component {
           aria-label="Post-Comment-Form"
         >
           <div>
-            <label htmlFor="username"> Username: </label>
+            <label htmlFor="username-forPost"> Username: </label>
             <input
               type="text"
-              id="username"
+              id="username-forPost"
               value={username}
               onChange={this.handleChange}
             />
@@ -35,10 +35,10 @@ class PostComment extends Component {
           </div>
           <br />
           <div>
-            <label htmlFor="password"> Password: </label>
+            <label htmlFor="password-forPost"> Password: </label>
             <input
               type="password"
-              id="password"
+              id="password-forPost"
               value={password}
               onChange={this.handleChange}
             />
@@ -70,8 +70,6 @@ class PostComment extends Component {
       this.setState({ username: localStorage.username });
     }
   };
-
-  componentDidUpdate = () => {};
 
   handleChange = event => {
     const { id, value } = event.target;

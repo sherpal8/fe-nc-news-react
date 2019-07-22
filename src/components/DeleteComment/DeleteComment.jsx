@@ -75,8 +75,6 @@ class DeleteComment extends Component {
     }
   };
 
-  componentDidUpdate = () => {};
-
   // to update state with input values
   handleChange = event => {
     const { id, value } = event.target;
