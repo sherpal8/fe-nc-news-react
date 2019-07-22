@@ -15,14 +15,19 @@ class Nav extends Component {
         <Login />
         <nav className="Nav__nav">
           <li className="Nav__li">
-            <Link className="Nav__Link" to="/">
+            <Link className="Nav__Link" data-cy="Home" to="/">
               Home
             </Link>
           </li>
           {topicsArr.map(({ slug }) => {
             return (
               <li key={slug} className="Nav__li">
-                <Link className="Nav__Link" to={`/topics/${slug}`} key={slug}>
+                <Link
+                  className="Nav__Link"
+                  data-cy={slug}
+                  to={`/topics/${slug}`}
+                  key={slug}
+                >
                   {slug}
                 </Link>
               </li>
