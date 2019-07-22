@@ -9,7 +9,7 @@ At the top of the page, you have the option to login. The details are as below:
 **username**: jessjelly
 **password** : 123
 
-However, for the purpose of enhanced security, to POST and DELETE comments, you will need to login again but this time a registered fullname will also be required, as below.
+However, for the purpose of enhanced security, to POST and DELETE comments, you will need to login again and this time a registered fullname will also be required, as below.
 
 **Gentle note: Important**
 To post and delete comments, you will need to enter all 3 details as below. The username and fullname matches the database (credentials) in the backend to allow for function. Additionally, as the backend is currently deficient with regards to passwords data, frontend functional logic has been hardcoded to accept the password as 123 only.
@@ -23,6 +23,7 @@ Minimum dependency versions as below:
 "dependencies": {
 "@reach/router": "^1.2.1",
 "axios": "^0.19.0",
+"cypress": "^3.4.0",
 "react": "^16.8.6",
 "react-dom": "^16.8.6",
 "react-scripts": "3.0.1"
@@ -51,6 +52,10 @@ Getting started:
 6. Step 6:
    via the CLI: \$ npm start
    (this will get this front-end project running locally on your browser on port 3000)
+
+7. If interested, front-end testing using Cypress
+   via the CLI: \$ npm run cy:open
+   (this will only work if \$ npm start is currently running)
 
 Futher information:
 
